@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'grid.dart';
 
+// This is the file for the home page.
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
 

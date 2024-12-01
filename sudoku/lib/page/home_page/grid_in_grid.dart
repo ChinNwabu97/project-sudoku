@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:sudoku/page/home_page/sudoku_box.dart';
 
-// This Widget creates the inner 3 x 3 Grid
+// This Widget creates the inner 3 x 3 Grid.
 class GridInGrid extends StatelessWidget {
   @override
   Widget build(BuildContext context) {

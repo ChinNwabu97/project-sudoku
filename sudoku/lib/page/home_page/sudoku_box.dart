@@ -11,19 +11,21 @@ class SudokuBox extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    if (index == 0 ){
-      return Container(
-      height: 500,
-      width: 500,
-      color: Colors.white,
-      child: Text(index.toString()),
-    );
-    }
+    // if (index == 0 ){
+    //   return Container(
+    //   height: 500,
+    //   width: 500,
+    //   color: Colors.white,
+    //   child: Text(index.toString()),
+    // );
+    // }
     return Container(
-      decoration: BoxDecoration(
+      decoration: const BoxDecoration(
         color: Colors.white,
-        border: Border.all(
-          width: 1
+        border: Border(
+          right: BorderSide(color: Colors.grey),
+          top: BorderSide(color: Colors.grey)
+          // width: 1
         )
       ),
       height: 500,

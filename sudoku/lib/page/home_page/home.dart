@@ -12,8 +12,24 @@ class HomePage extends StatelessWidget {
         title: const Text('Sudoku!!'),
         backgroundColor: Colors.blue,
       ),
-      body: Grid(),
+      body: SizedBox(
+          height: MediaQuery.of(context).size.height,
+          width: MediaQuery.of(context).size.width,
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Flexible(child: Grid()),
+              const SizedBox(width: 20,),
+              Flexible(
+                child: Container(
+                  height: 500,
+                  width: 500,
+                  color: Colors.blue
+                ),
+              )
+            ],
+          )),
     );
   }
 }
-

@@ -9,7 +9,8 @@ class GridInGrid extends StatelessWidget {
     return Container(
       decoration: BoxDecoration(
         border: Border.all(
-          width: 1
+          color: Colors.grey,
+          width: 0
         ),
       ),
       height: 1000/3,

@@ -24,7 +24,8 @@ class GridInGrid extends StatelessWidget {
           itemCount: 9,
           itemBuilder: (context, i) {
             return SudokuBox(index: i);
-          }),
+          }
+        ),
     );
   }
 }

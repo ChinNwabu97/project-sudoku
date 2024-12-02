@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sudoku/page/home_page/number_pad.dart';
 import 'grid.dart';
 
 // This is the file for the home page.
@@ -19,17 +20,17 @@ class HomePage extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              Flexible(child: Grid()),
-              const SizedBox(width: 20,),
               Flexible(
-                child: Container(
-                  height: 500,
-                  width: 500,
-                  color: Colors.blue
-                ),
-              )
+                child: Grid()),
+              const SizedBox(width: 20,),
+              SizedBox( // Sized box to control the amount of space the number pad takes
+                height: 700,
+                width: 300,
+                child: NumberPad(),
+              ),
             ],
-          )),
+          )
+      ),
     );
   }
 }

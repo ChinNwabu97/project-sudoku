@@ -1,36 +1,71 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:sudoku/providers/sudoku_grid_state.dart';
 
-// Sudoku Box is the file containing a single box for containing a number
 class SudokuBox extends StatelessWidget {
   final int index;
 
-  const SudokuBox({
-    super.key,
-    required this.index
-  });
+  SudokuBox({required this.index});
 
   @override
   Widget build(BuildContext context) {
-    // if (index == 0 ){
-    //   return Container(
-    //   height: 500,
-    //   width: 500,
-    //   color: Colors.white,
-    //   child: Text(index.toString()),
-    // );
-    // }
-    return Container(
-      decoration: const BoxDecoration(
-        color: Colors.white,
-        border: Border(
-          right: BorderSide(color: Colors.grey),
-          top: BorderSide(color: Colors.grey)
-          // width: 1
-        )
-      ),
-      height: 500,
-      width: 500,
-      child: Text(index.toString()),
+    return Consumer<SudokuGridState>(
+      builder: (context, sudokuGridState, child) {
+        final value = sudokuGridState.gridValues[index];
+
+        return GestureDetector(
+          onTap: () => _showNumberPad(context, sudokuGridState),
+          child: Container(
+            decoration: BoxDecoration(
+              border: Border.all(color: Colors.black),
+            ),
+            child: Center(
+              child: Text(
+                value == null ? '' : value.toString(),
+                style: const TextStyle(fontSize: 20),
+              ),
+            ),
+          ),
+        );
+      },
+    );
+  }
+
+
+  void _showNumberPad(BuildContext context, SudokuGridState sudokuGridState) {
+    showDialog(
+      context: context,
+      builder: (context) {
+        return AlertDialog(
+          title: const Text("Choose a number"),
+          content: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: List.generate(9, (index) {
+              final number = index + 1;
+              return GestureDetector(
+                onTap: () {
+                  sudokuGridState.updateBox(this.index, number);
+                  Navigator.pop(context); // Close the dialog
+                },
+                child: Container(
+                  margin: const EdgeInsets.symmetric(vertical: 5),
+                  padding: const EdgeInsets.all(10),
+                  decoration: BoxDecoration(
+                    border: Border.all(color: Colors.grey),
+                    borderRadius: BorderRadius.circular(5),
+                  ),
+                  child: Center(
+                    child: Text(
+                      number.toString(),
+                      style: const TextStyle(fontSize: 20),
+                    ),
+                  ),
+                ),
+              );
+            }),
+          ),
+        );
+      },
     );
   }
 }

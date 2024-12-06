@@ -1,8 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:sudoku/providers/sudoku_grid_state.dart';
 import 'page/home_page/home.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(
+    ChangeNotifierProvider(
+      create: (context) => SudokuGridState(), // Provide the Sudoku grid state
+      child: MyApp(),
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {

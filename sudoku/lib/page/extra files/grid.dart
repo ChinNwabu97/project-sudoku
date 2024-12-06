@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:sudoku/page/home_page/grid_in_grid.dart';
+import 'package:sudoku/page/extra%20files/grid_in_grid.dart';
 
 // This Widget creates the outer 3X3 Grid.
 class Grid extends StatelessWidget {
